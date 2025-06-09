@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////// CÓDIGO UNIFICADO //////////////////////////////////////////////////
 
-#define BLYNK_TEMPLATE_ID "TMPL2FlJbdIi3"
+#define BLYNK_TEMPLATE_ID ""
 #define BLYNK_TEMPLATE_NAME "Controle de Acesso"
-#define BLYNK_AUTH_TOKEN "u2jEDXhIVnadIBl8HhyFyXWcq0q90sGZ"
+#define BLYNK_AUTH_TOKEN ""
 #define BLYNK_PRINT Serial
 
 #include <WiFi.h>
@@ -12,8 +12,8 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-char ssid[] = "Facil_Matheus";
-char pass[] = "silva2003";
+char ssid[] = "";
+char pass[] = "";
 
 // Definições RFID
 #define SS_PIN 5
