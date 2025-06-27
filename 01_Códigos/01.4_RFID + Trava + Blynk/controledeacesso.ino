@@ -1,6 +1,8 @@
+///////////////////////////////////////////////// CÓDIGO UNIFICADO //////////////////////////////////////////////////
+
 #define BLYNK_TEMPLATE_ID ""
 #define BLYNK_TEMPLATE_NAME "Trava"
-#define BLYNK_AUTH_TOKEN "
+#define BLYNK_AUTH_TOKEN "-vC8E1FDfr1GoQLb"
 #define BLYNK_PRINT Serial
 
 #include <WiFi.h>
@@ -26,7 +28,7 @@ void setup() {
   rfid.PCD_Init();
 
   pinMode(pinoRele, OUTPUT);
-  digitalWrite(pinoRele, HIGH);
+  digitalWrite(pinoRele, HIGH); // RELÉ DESLIGADO INICIALMENTE
   Serial.println("Sistema iniciado.");
 }
 
@@ -51,16 +53,17 @@ void leituraRfid() {
   Serial.println(strID);
 
   if (strID.indexOf("04:AD:6A:A7") >= 0) {
-    digitalWrite(pinoRele, LOW);
+    digitalWrite(pinoRele, LOW); // RELÉ LIGADO
     Blynk.logEvent("acesso_autorizado", "Cartão autorizado: " + strID);
     delay(3000);
-    digitalWrite(pinoRele, HIGH);
+    digitalWrite(pinoRele, HIGH); // RELÉ DESLIGADO
   }
 
   rfid.PICC_HaltA();
   rfid.PCD_StopCrypto1();
 }
 
+// Controle do relé via app Blynk (V16)
 BLYNK_WRITE(V17) {
   int estado = param.asInt();
   digitalWrite(pinoRele, estado == 1 ? LOW : HIGH);
