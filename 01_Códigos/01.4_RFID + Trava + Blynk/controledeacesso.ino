@@ -2,7 +2,7 @@
 
 #define BLYNK_TEMPLATE_ID ""
 #define BLYNK_TEMPLATE_NAME "Trava"
-#define BLYNK_AUTH_TOKEN "-vC8E1FDfr1GoQLb"
+#define BLYNK_AUTH_TOKEN "-"
 #define BLYNK_PRINT Serial
 
 #include <WiFi.h>
