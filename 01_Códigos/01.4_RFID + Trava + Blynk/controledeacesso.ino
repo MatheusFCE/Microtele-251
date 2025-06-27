@@ -26,7 +26,7 @@ void setup() {
   rfid.PCD_Init();
 
   pinMode(pinoRele, OUTPUT);
-  digitalWrite(pinoRele, HIGH); // RELÉ DESLIGADO INICIALMENTE
+  digitalWrite(pinoRele, HIGH);
   Serial.println("Sistema iniciado.");
 }
 
@@ -51,17 +51,16 @@ void leituraRfid() {
   Serial.println(strID);
 
   if (strID.indexOf("04:AD:6A:A7") >= 0) {
-    digitalWrite(pinoRele, LOW); // RELÉ LIGADO
+    digitalWrite(pinoRele, LOW);
     Blynk.logEvent("acesso_autorizado", "Cartão autorizado: " + strID);
     delay(3000);
-    digitalWrite(pinoRele, HIGH); // RELÉ DESLIGADO
+    digitalWrite(pinoRele, HIGH);
   }
 
   rfid.PICC_HaltA();
   rfid.PCD_StopCrypto1();
 }
 
-// Controle do relé via app Blynk (V16)
 BLYNK_WRITE(V17) {
   int estado = param.asInt();
   digitalWrite(pinoRele, estado == 1 ? LOW : HIGH);
