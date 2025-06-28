@@ -15,8 +15,8 @@
 char ssid[] = "";
 char pass[] = "";
 
-#define SS_PIN 21
-#define RST_PIN 22
+#define SS_PIN 5
+#define RST_PIN 16
 MFRC522 rfid(SS_PIN, RST_PIN);
 
 const int pinoRele = 17;
