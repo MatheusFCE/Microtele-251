@@ -161,8 +161,14 @@ void acessoPermitido(String mensagem) {
   lcd.setCursor(0, 0);
   lcd.print(mensagem);
   digitalWrite(pinoRele, LOW);
-  delay(3000);
+  delay(5000);  // aumenta o tempo para 5 segundos
   digitalWrite(pinoRele, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Trava fechada");
+  delay(2000);
+
   resetDisplay();
 }
 
