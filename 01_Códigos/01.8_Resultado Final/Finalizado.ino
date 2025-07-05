@@ -161,7 +161,7 @@ void acessoPermitido(String mensagem) {
   lcd.setCursor(0, 0);
   lcd.print(mensagem);
   digitalWrite(pinoRele, LOW);
-  delay(5000);  // aumenta o tempo para 5 segundos
+  delay(5000); 
   digitalWrite(pinoRele, HIGH);
 
   lcd.clear();
