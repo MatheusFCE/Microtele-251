@@ -107,7 +107,18 @@ void leituraRfid() {
 BLYNK_WRITE(V17) {
   int estado = param.asInt();
   if (estado == 1) {
-    acessoPermitido("Acesso via app");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Acesso via app");
+    digitalWrite(pinoRele, LOW);
+    Blynk.logEvent("acesso_autorizado", "Trava aberta via app");
+  } else {
+    digitalWrite(pinoRele, HIGH);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Trava fechada");
+    delay(2000);
+    resetDisplay();
   }
 }
 
