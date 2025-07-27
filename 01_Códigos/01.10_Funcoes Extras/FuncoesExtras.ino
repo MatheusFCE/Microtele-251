@@ -177,6 +177,7 @@ BLYNK_WRITE(V17) {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Trava fechada");
+    enviarMensagem("O administrador fechou a trava.");
     delay(2000);
     resetDisplay();
   }
